@@ -1,0 +1,14 @@
+body{margin:0;font-family:Arial,sans-serif;background:#f6f7fb;color:#111}
+.container{width:min(1100px,92%);margin:0 auto}
+.topbar{background:#fff;border-bottom:1px solid #ddd;padding:10px 0}
+.row{display:flex;gap:12px;align-items:center}.between{justify-content:space-between}
+.page{padding:16px 0}.grid3{display:grid;grid-template-columns:320px 1fr;gap:14px}
+.col2{grid-column:span 1}
+.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:12px}
+.form{display:grid;gap:8px}.form input,.form textarea,.form button{padding:9px}
+.btn{border:0;border-radius:8px;cursor:pointer}.btn-primary{background:#2563eb;color:#fff}
+.review{border:1px solid #e5e7eb;border-radius:8px;padding:8px;margin:8px 0;background:#fafafa}
+.muted{color:#666}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.auth{max-width:420px;padding:30px 0}.error{color:#b91c1c}
+@media(max-width:900px){.grid3,.kpis{grid-template-columns:1fr}}
