@@ -1,0 +1,9 @@
+dialog.kkc{--p:#fff;--i:#14213d;--l:#d3dbe4;border:2px solid var(--i);border-radius:16px;background:var(--p);color:var(--i);width:min(420px,92vw);padding:22px;font:16px/1.5 system-ui,sans-serif}
+[data-theme=dark] dialog.kkc,.dark dialog.kkc{--p:#162137;--i:#eaf0fa;--l:#27344d}
+dialog.kkc::backdrop{background:#0b1220b3;backdrop-filter:blur(2px)}
+dialog.kkc h3{margin:0 0 6px;font-size:1.25rem}dialog.kkc p{margin:0 0 18px;opacity:.8}
+dialog.kkc .row{display:flex;gap:8px;justify-content:flex-end}
+dialog.kkc button{border:2px solid var(--i);background:none;color:inherit;border-radius:99px;padding:8px 18px;font-weight:600;cursor:pointer}
+dialog.kkc button.ok{background:var(--i);color:var(--p)}dialog.kkc.danger button.ok{background:#e23b2e;border-color:#e23b2e;color:#fff}
+dialog.kkc[open]{animation:kkc .15s ease-out}@keyframes kkc{from{transform:scale(.96);opacity:0}}
+@media(prefers-reduced-motion:reduce){dialog.kkc[open]{animation:none}}
