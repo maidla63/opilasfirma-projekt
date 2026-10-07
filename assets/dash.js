@@ -37,7 +37,7 @@ function trendSvg(t) {
 
 function insights(d) {
   const out = [], w = d.week.filter(x => x.waste !== null).sort((a, b) => b.waste - a.waste)[0];
-  if (w) out.push(`<b>${DAYS[w.w]}ti</b> läheb kõige rohkem toitu prügikasti (${w.waste}% jääb söömata). Vaata selle päeva menüü üle.`);
+  if (w) out.push(`<b>${['esmaspäeviti','teisipäeviti','kolmapäeviti','neljapäeviti','reedeti','laupäeviti','pühapäeviti'][w.w]}</b> läheb kõige rohkem toitu prügikasti (${w.waste}% jääb söömata). Vaata selle päeva menüü üle.`);
   if (d.worst[0] && d.worst[0].r < 3) out.push(`Kõige nõrgemalt hinnati <b>${esc(d.worst[0].meal)}</b> (${fmt(d.worst[0].r)}/5, ${d.worst[0].n} hinnangut).`);
   if (d.best[0] && d.best[0].r >= 4) out.push(`Õpilastele meeldib <b>${esc(d.best[0].meal)}</b> (${fmt(d.best[0].r)}/5). Sobib sagedamini menüüsse.`);
   const neg = Object.entries(d.tags).find(([t]) => NEG.includes(t));
@@ -71,6 +71,7 @@ function render(d) {
     <div class="box"><h2>Kõrgeima hindega road</h2>${rows(d.best)}</div>
   </div>
   <div class="box"><h2>Road, mis jäävad kõige sagedamini söömata</h2>${rows(d.wasted, 'waste')}</div>
+  ${benchBox(d)}
   <p class="note">Andmed on õpilaste anonüümsed hinnangud. Toidu kohta kuvatakse tulemus alates 2 hinnangust. Üksikuid kommentaare ega kasutajaid raportis ei näidata.</p>`;
 }
 
@@ -94,4 +95,27 @@ $('#menuSave')?.addEventListener('click', async () => {
   const items = [...document.querySelectorAll('.mrow')].map(r => ({ date: r.querySelector('input').value, meals: r.querySelector('textarea').value.split('\n').map(s => s.trim()).filter(Boolean) }));
   const fd = new FormData(); fd.set('mode', 'save'); fd.set('school_id', $('#dSchool').value); fd.set('items', JSON.stringify(items));
   try { await menuPost(fd); $('#menuErr').textContent = 'Menüü salvestatud ✅'; $('#menuPrev').innerHTML = ''; $('#menuSave').hidden = true; } catch (e) { $('#menuErr').textContent = e.message; }
+});
+
+/* Anonüümne võrdlus teiste koolidega */
+function benchBox(d) {
+  const b = d.bench;
+  if (!b) return '<div class="box"><h2>Võrdlus teiste koolidega</h2><p class="note">Võrdlus ilmub, kui vähemalt 3 kooli on perioodis saanud 5 või rohkem hinnangut. Teiste koolide nimesid ei näidata kunagi.</p></div>';
+  const row = (l, you, med, top, u) => `<tr><td>${l}</td><td><b>${you === null ? '—' : fmt(you) + u}</b></td><td>${fmt(med)}${u}</td><td>${fmt(top)}${u}</td></tr>`;
+  return `<div class="box"><h2>Võrdlus teiste koolidega</h2>
+    <table class="tbl"><tr><td></td><td><b>Teie</b></td><td>Mediaan</td><td>Parim veerand</td></tr>
+    ${row('Keskmine hinne', d.kpi.rating, b.rating.median, b.rating.top, '')}${row('Jääb söömata', d.kpi.waste, b.waste.median, b.waste.top, '%')}</table>
+    ${b.pctRating !== null ? `<p>Hinde poolest olete parem kui <b>${b.pctRating}%</b> koolidest${b.pctWaste !== null ? `, söömata jäänud toidu poolest parem kui <b>${b.pctWaste}%</b>` : ''}.</p>` : '<p class="note">Teie koolil on vähem kui 5 hinnangut, seega kohta ei arvutata.</p>'}
+    <p class="note">Anonüümne võrdlus ${b.schools} kooliga, kus on vähemalt 5 hinnangut.</p></div>`;
+}
+
+/* Raport e-mailile */
+$('#mailRep')?.addEventListener('click', async () => {
+  const b = $('#mailRep'), fd = new FormData(); fd.set('school_id', $('#dSchool').value); fd.set('days', $('#dDays').value);
+  b.disabled = true; b.textContent = 'Saadan…';
+  try {
+    const r = await fetch('api/send_report.php', { method: 'POST', body: fd, headers: { 'X-CSRF-Token': D.csrf }, credentials: 'same-origin' });
+    const j = await r.json(); b.textContent = r.ok ? 'Saadetud ✅' : j.error;
+  } catch (e) { b.textContent = 'Viga'; }
+  setTimeout(() => { b.disabled = false; b.textContent = 'Saada e-mailile'; }, 4000);
 });

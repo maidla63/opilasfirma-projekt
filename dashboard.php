@@ -25,6 +25,7 @@ $boot = ['schools' => $schools, 'csrf' => csrf_token()];
     <select id="dSchool" aria-label="Kool"><?php foreach ($schools as $s): ?><option value="<?= (int)$s['id'] ?>"><?= htmlspecialchars($s['name']) ?></option><?php endforeach; ?></select>
     <select id="dDays" aria-label="Periood"><option value="7">Viimased 7 päeva</option><option value="30" selected>Viimased 30 päeva</option><option value="90">Viimased 90 päeva</option></select>
     <a class="btn" id="csv" href="#">Laadi alla CSV</a>
+    <button class="btn" id="mailRep" type="button">Saada e-mailile</button>
     <button class="btn pri" onclick="window.print()">Salvesta PDF</button>
   </div>
   <details class="box noprint"><summary><b>Menüü import</b> (foto, PDF või ekraanipilt)</summary>

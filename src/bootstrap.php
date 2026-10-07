@@ -12,7 +12,7 @@ const UPLOAD_URL = 'uploads';
 ini_set('display_errors', '0'); // vead logisse, mitte kasutajale
 error_reporting(E_ALL);
 
-if (session_status() === PHP_SESSION_NONE) {
+if (PHP_SAPI !== 'cli' && session_status() === PHP_SESSION_NONE) {
   $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
   session_set_cookie_params(['lifetime' => 0, 'path' => '/', 'secure' => $https, 'httponly' => true, 'samesite' => 'Lax']);
   session_start();

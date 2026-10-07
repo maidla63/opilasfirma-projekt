@@ -56,8 +56,24 @@ function dash_data(int $sid, int $days): array {
     foreach (explode(',', $row['tags']) as $t) $tags[$t] = ($tags[$t] ?? 0) + 1;
   arsort($tags);
 
+  // anonüümne võrdlus: ainult koolid, kus on vähemalt 5 hinnangut, ja vähemalt 3 kooli (nimesid ei avaldata)
+  $sch = $q("SELECT AVG(rating) r, AVG(eaten_percent) e $base GROUP BY school_id HAVING COUNT(*) >= 5", [$from, $to]);
+  $bm = null;
+  if (count($sch) >= 3) {
+    $rs = array_map(fn($x) => (float)$x['r'], $sch); sort($rs);
+    $ws = array_values(array_map(fn($x) => 100 - (float)$x['e'], array_filter($sch, fn($x) => $x['e'] !== null))); sort($ws);
+    $at = fn(array $a, float $p) => $a ? $a[(int)floor((count($a) - 1) * $p)] : null;
+    $mineR = $cur['n'] >= 5 ? $cur['rating'] : null;
+    $mineW = $cur['n'] >= 5 ? $cur['waste'] : null;
+    $bm = ['schools' => count($sch),
+      'rating' => ['median' => $rd($at($rs, .5), 2), 'top' => $rd($at($rs, .75), 2)],
+      'waste' => ['median' => $rd($at($ws, .5), 0), 'top' => $rd($at($ws, .25), 0)],
+      'pctRating' => $mineR === null ? null : (int)round(100 * count(array_filter($rs, fn($v) => $v < $mineR)) / count($rs)),
+      'pctWaste' => ($mineW === null || !$ws) ? null : (int)round(100 * count(array_filter($ws, fn($v) => $v > $mineW)) / count($ws))];
+  }
+
   return [
-    'days' => $days, 'kpi' => $cur, 'prev' => $old,
+    'days' => $days, 'kpi' => $cur, 'prev' => $old, 'bench' => $bm,
     'market' => ['rating' => $rd($all['r'], 2), 'waste' => $waste($all['e'])],
     'rank' => ['pos' => $pos, 'of' => count($rank)],
     'trend' => $trend, 'week' => $week,
