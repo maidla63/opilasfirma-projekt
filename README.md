@@ -1,446 +1,179 @@
-🍽️ Lurr või hitt?
-<p align="center"> <strong>Koolitoidu tagasisideplatvorm õpilastele</strong> </p> <p align="center"> <a href="https://github.com/maidla63/opilasfirma-projekt"> <img src="https://img.shields.io/badge/status-active%20development-orange?style=for-the-badge" alt="Project status"> </a> <img src="https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"> <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"> <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"> </p> <p align="center"> <a href="#-projektist">Projektist</a> • <a href="#-funktsioonid">Funktsioonid</a> • <a href="#-tehnoloogiad">Tehnoloogiad</a> • <a href="#-paigaldamine">Paigaldamine</a> • <a href="#-projekti-struktuur">Struktuur</a> • <a href="#-turvalisus">Turvalisus</a> </p>
-📖 Projektist
+# 🍽️ Lurr või hitt?
 
-Lurr või hitt? on õpilastele suunatud veebiplatvorm, mille eesmärk on muuta koolitoidu kohta tagasiside andmine lihtsaks, kiireks ja läbipaistvaks.
+<p align="center">
+  <strong>Koolitoidu tagasisideplatvorm õpilastele</strong>
+</p>
 
-Õpilased saavad hinnata koolis pakutavat toitu, lisada kommentaare, kasutada märksõnu ning anda tagasisidet selle kohta, kui palju toidust ära söödi ja kas nad sooviksid sama toitu uuesti.
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+</p>
 
-Kogutud andmete põhjal saab võrrelda koole, analüüsida toitude populaarsust ning tuvastada korduvaid probleeme.
+---
 
-Lühidalt: mida õpilased sööklas tegelikult arvavad?
+## 📖 Projektist
 
-🎯 Eesmärk
+**Lurr või hitt?** on õpilastele mõeldud veebiplatvorm, kus saab anda tagasisidet koolis pakutava toidu kohta.
 
-Projekti eesmärk on ühendada õpilaste tagasiside, statistika ja koolitoidu kvaliteedi jälgimine ühte lihtsasse keskkonda.
+Kasutajad saavad hinnata toite, kirjutada kommentaare, lisada märksõnu ning jagada oma arvamust teiste õpilastega.
 
-Platvorm aitab vastata näiteks järgmistele küsimustele:
+Kogutud hinnangute põhjal saab võrrelda erinevaid koole ja toite ning vaadata statistikat.
 
-🍕 Millised toidud õpilastele kõige rohkem meeldivad?
+### 🎯 Projekti eesmärk
 
-🥘 Millised toidud saavad kõige rohkem negatiivset tagasisidet?
+Projekti eesmärk on muuta koolitoidu kohta tagasiside andmine:
 
-🍽️ Kui palju toitu jääb söömata?
+- lihtsaks;
+- kiireks;
+- läbipaistvaks;
+- õpilastele mugavaks.
 
-🏫 Millistes koolides on õpilaste hinnangud kõige paremad?
+Samuti aitab kogutud tagasiside paremini mõista, millised toidud õpilastele meeldivad ja millised mitte.
 
-💬 Millised probleemid korduvad õpilaste kommentaarides?
+---
 
-📈 Kuidas muutuvad hinnangud aja jooksul?
+## ✨ Funktsioonid
 
-✨ Põhifunktsioonid
-👨‍🎓 Õpilastele
+### 👨‍🎓 Õpilastele
 
-Konto loomine ja sisselogimine
+- 👤 Kasutajakonto loomine
+- 🔐 Sisselogimine ja väljalogimine
+- 🍴 Toidu hindamine
+- ⭐ Hinnangu andmine
+- 💬 Kommentaaride lisamine
+- 🏷️ Märksõnade lisamine
+- 📷 Toidupildi lisamine
+- 🍽️ Söödud koguse märkimine
+- 🔄 Märkimine, kas sööksid toitu uuesti
+- ❤️ Hinnangutele reageerimine
+- 👤 Kasutajaprofiil
+- 🌙 Hele ja tume teema
 
-Kooliga seotud kasutajakonto
+### 🏫 Koolid
 
-Toitude hindamine
+- Koolide vaatamine
+- Koolide võrdlemine
+- Koolide edetabel
+- Keskmiste hinnangute kuvamine
+- Hinnangute arvu kuvamine
 
-Hinnangute ja kommentaaride lisamine
+### 📊 Statistika
 
-Märksõnade kasutamine
+- Toitude hinnangute statistika
+- Kasutajate aktiivsuse statistika
+- Koolide tulemuste võrdlemine
+- Raportite vaatamine
+- Andmete eksport
 
-Toidu söömise hulga märkimine
+### 🛡️ Administraatoritele
 
-Märkimine, kas sööksid toitu uuesti
+- Kasutajate haldamine
+- Administraatorite haldamine
+- Sisu moderatsioon
+- Kasutajarollide haldamine
+- Administraatori dashboard
+- Sobimatu sisu eemaldamine
 
-Toidupildi lisamine
+---
 
-Teiste kasutajate hinnangute vaatamine
+## 🖥️ Rakenduse põhivaated
 
-Hinnangute meeldimised
+### 📰 Avaleht
 
-Profiil ja kasutaja tegevused
+Avalehel kuvatakse kasutajate poolt lisatud toiduhinnanguid.
 
-Hele ja tume teema
+Kasutaja saab sirvida teiste õpilaste arvamusi ning vaadata erinevaid hinnanguid.
 
-🏫 Koolidele
+### 🍴 Toidu hindamine
 
-Koolide võrdlemine
+Kasutaja saab lisada uue hinnangu ning määrata näiteks:
 
-Koolide edetabel
+- toidu nime;
+- kooli;
+- hinnangu;
+- märksõnad;
+- kommentaari;
+- söödud koguse;
+- kas sööks toitu uuesti;
+- toidupildi.
 
-Keskmiste hinnangute kuvamine
+### 🏫 Koolid
 
-Hinnangute arvu põhine statistika
+Koolide vaates saab võrrelda erinevaid koole ning vaadata nende tulemusi.
 
-Õpilaste aktiivsuse ülevaade
+### 👥 Õpilased
 
-📊 Statistika ja raportid
+Õpilaste vaates saab vaadata aktiivsemaid kasutajaid ja nende tegevust platvormil.
 
-Toitude hinnangute statistika
+### 📊 Dashboard
 
-Kasutajate aktiivsuse statistika
+Dashboard koondab statistika ja raportid ühte vaatesse.
 
-Koolide tulemused
+### 🛡️ Admin
 
-Raportivaade
+Administraatori vaates saab hallata kasutajaid ja platvormi sisu.
 
-Andmete eksport
+---
 
-🛡️ Administraatoritele
+## 🛠️ Tehnoloogiad
 
-Kasutajate haldamine
+| Tehnoloogia | Kasutus |
+|---|---|
+| PHP | Backend ja serveripoolne loogika |
+| MySQL / MariaDB | Andmebaas |
+| JavaScript | Interaktiivsus ja API-päringud |
+| HTML5 | Veebilehe struktuur |
+| CSS3 | Kujundus ja responsive kasutajaliides |
+| SQL | Andmebaasi päringud ja struktuur |
 
-Administraatorite haldamine
+---
 
-Sisu moderatsioon
+## 🏗️ Projekti ülesehitus
 
-Kasutajate rollide haldamine
-
-Probleemse sisu kontrollimine
-
-Administraatori dashboard
-
-🖥️ Rakenduse põhivaated
-📰 Hinnangute voog
-
-Peamine voog koondab kasutajate poolt lisatud hinnangud ning võimaldab näha, mida teised õpilased koolitoidust arvavad.
-
-🍴 Toidu hindamine
-
-Kasutaja saab hinnata konkreetset toitu ning lisada täiendavat infot:
-
-hinnang;
-
-kommentaar;
-
-märksõnad;
-
-söödud kogus;
-
-kas sööks uuesti;
-
-foto.
-
-🏫 Koolide edetabel
-
-Koolide tulemusi saab võrrelda hinnangute põhjal.
-
-Edetabel aitab näha, millistes koolides on õpilaste tagasiside kõige positiivsem.
-
-👥 Õpilaste edetabel
-
-Õpilaste vaade võimaldab näha aktiivsemaid kasutajaid ning nende panust platvormile.
-
-📊 Dashboard
-
-Dashboard koondab projekti jaoks olulise statistika ja annab parema ülevaate kogutud andmetest.
-
-🛡️ Moderatsioon
-
-Moderatsiooni kaudu saab hallata kasutajate loodud sisu ja tagada, et platvorm jääks sobivaks ning kasutajasõbralikuks.
-
-🧰 Tehnoloogiad
-Tehnoloogia	Kasutus
-PHP	Serveripoolne loogika
-MySQL / MariaDB	Andmete salvestamine
-JavaScript	Interaktiivsus ja API-päringud
-HTML5	Veebilehe struktuur
-CSS3	Kujundus ja responsive UI
-SQL	Andmebaasi skeem ja päringud
-🏗️ Arhitektuur
-
-Rakendus on üles ehitatud klassikalise serveripoolse veebirakenduse põhimõttel.
-
-┌──────────────────────────────────────┐
-│              Frontend                │
-│        HTML + CSS + JavaScript       │
-└──────────────────┬───────────────────┘
-                   │
-                   ▼
-┌──────────────────────────────────────┐
-│             PHP Backend              │
-│     Authentication / Business Logic  │
-└──────────────────┬───────────────────┘
-                   │
-          ┌────────┴────────┐
-          ▼                 ▼
-┌─────────────────┐  ┌─────────────────┐
-│       API       │  │   File Storage  │
-│ PHP endpoints   │  │ uploads/storage │
-└────────┬────────┘  └─────────────────┘
-         │
-         ▼
-┌──────────────────────────────────────┐
-│              MySQL                   │
-│          Application data            │
-└──────────────────────────────────────┘
-
-📁 Projekti struktuur
+```text
 opilasfirma-projekt/
 │
-├── api/                    # API ja backend-funktsioonid
+├── api/
 │   ├── auth.php
 │   ├── db.php
 │   └── ...
 │
-├── assets/                 # CSS ja JavaScript
+├── assets/
 │   ├── kk.css
 │   ├── extra.css
 │   ├── confirm.css
 │   ├── kk.js
 │   └── confirm.js
 │
-├── cron/                   # Ajastatud ülesanded
+├── cron/
 │   └── ...
 │
-├── sql/                    # Andmebaasi SQL-failid
+├── sql/
 │   └── ...
 │
-├── src/                    # Projekti lähtekood
+├── src/
 │   └── ...
 │
-├── storage/                # Rakenduse salvestatud andmed
+├── storage/
 │   └── ...
 │
-├── uploads/                # Kasutajate üleslaaditud failid
+├── uploads/
 │   └── ...
 │
-├── admin.php               # Administraatori dashboard
-├── admin.js                # Admini JavaScript
-├── admin_managers.php      # Administraatorite haldus
-├── app.js                  # Rakenduse JavaScript
-├── dashboard.php           # Statistika ja raportid
-├── export.php              # Andmete eksport
-├── index.php               # Avaleht / feed
-├── login.php               # Sisselogimine
-├── logout.php              # Väljalogimine
-├── moderation.php          # Moderatsioon
-├── profile.php             # Kasutaja profiil
-├── register.php            # Registreerimine
-├── script.js               # Üldine JavaScript
+├── admin.php
+├── admin.js
+├── admin_managers.php
+├── app.js
+├── dashboard.php
+├── export.php
+├── index.php
+├── login.php
+├── logout.php
+├── moderation.php
+├── profile.php
+├── register.php
+├── script.js
 └── README.md
-
-🚀 Paigaldamine
-Eeldused
-
-Enne projekti käivitamist veendu, et arvutis on olemas:
-
-PHP 8.x või uuem
-
-MySQL või MariaDB
-
-Apache või muu PHP-d toetav veebiserver
-
-Git
-
-1. Repositooriumi kloonimine
-git clone https://github.com/maidla63/opilasfirma-projekt.git
-cd opilasfirma-projekt
-
-2. Andmebaasi loomine
-
-Loo MySQL/MariaDB andmebaas:
-
-CREATE DATABASE opilasfirma;
-
-
-Seejärel impordi projekti sql/ kaustas olevad vajalikud SQL-failid.
-
-Näiteks:
-
-mysql -u USERNAME -p opilasfirma < sql/database.sql
-
-
-SQL-faili täpne nimi sõltub projekti praegusest versioonist.
-
-3. Andmebaasiühenduse seadistamine
-
-Kontrolli faili:
-
-api/db.php
-
-
-ja määra enda keskkonnale vastavad ühenduse andmed:
-
-$host = 'localhost';
-$db   = 'opilasfirma';
-$user = 'YOUR_USERNAME';
-$pass = 'YOUR_PASSWORD';
-
-
-⚠️ Ära commit'i päris paroole GitHubi.
-
-Kui võimalik, kasuta tootmiskeskkonnas environment variable'e.
-
-4. Rakenduse käivitamine
-
-Arenduskeskkonnas saab PHP sisseehitatud serverit kasutada:
-
-php -S localhost:8000
-
-
-Seejärel ava:
-
-http://localhost:8000
-
-🔐 Turvalisus
-
-Turvalisus on rakenduse oluline osa.
-
-Projekt kasutab muu hulgas:
-
-🔒 paroolide hashimist;
-
-🛡️ sessioonipõhist autentimist;
-
-🎫 CSRF-token'eid;
-
-👤 kasutajarolle;
-
-🔑 ligipääsukontrolli;
-
-🗄️ ettevalmistatud SQL-päringuid;
-
-🚫 admini funktsioonide piiratud ligipääsu.
-
-Ära kunagi lisa GitHubi:
-.env
-database passwords
-API keys
-private keys
-production credentials
-session secrets
-
-
-Soovituslik .gitignore võiks sisaldada näiteks:
-
-.env
-.env.*
-*.log
-
-storage/*
-uploads/*
-
-.DS_Store
-.idea/
-.vscode/
-
-👤 Kasutajarollid
-
-Rakenduses on kasutajatel erinevad õigused.
-
-Roll	Õigused
-user	Toitude hindamine ja tavakasutaja funktsioonid
-admin	Kasutajate, sisu ja süsteemi haldamine
-
-Täiendavaid rolle saab projekti arenedes juurde lisada.
-
-📊 Andmed ja statistika
-
-Platvorm kogub kasutajate hinnanguid, mille põhjal saab moodustada statistikat.
-
-Näiteks:
-
-                 Kooli keskmine
-                       │
-                       ▼
-              ┌─────────────────┐
-              │      4.2 ⭐      │
-              └─────────────────┘
-                       │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-       1 245          82%          68%
-     hinnangut     sööks uuesti   sõi ära
-
-
-Selline info aitab muuta subjektiivse tagasiside mõõdetavamaks ning lihtsamini analüüsitavaks.
-
-🧪 Arendus
-
-Muudatuste tegemiseks loo uus haru:
-
-git checkout -b feature/my-feature
-
-
-Pärast muudatuste tegemist:
-
-git add .
-git commit -m "Add: my feature"
-git push origin feature/my-feature
-
-
-Seejärel saab GitHubis avada Pull Request'i.
-
-Commit-sõnumite soovitus
-
-Kasuta võimalusel selgeid commit-sõnumeid:
-
-Add: new food rating feature
-Fix: login validation
-Update: dashboard statistics
-Refactor: database connection
-Style: improve mobile layout
-Docs: update README
-
-🗺️ Roadmap
-
-Edasises arenduses võiks projektile lisada näiteks:
-
- Täielik responsive mobile-first UI
-
- Täpsem statistika ja graafikud
-
- Toitude automaatne järjestamine
-
- Täiustatud otsing ja filtrid
-
- Teavituste süsteem
-
- PWA / mobiilirakenduse tugi
-
- Täiustatud admin dashboard
-
- Automaatne testimine
-
- CI/CD
-
- Production deployment
-
- Detailsem API dokumentatsioon
-
-🤝 Panustamine
-
-Panustamine on teretulnud.
-
-Fork'i projekt.
-
-Loo uus branch.
-
-Tee oma muudatused.
-
-Lisa selge commit.
-
-Push'i branch GitHubi.
-
-Loo Pull Request.
-
-Enne Pull Request'i veendu, et:
-
-olemasolev funktsionaalsus töötab;
-
-uusi PHP vigu ei teki;
-
-tundlikke andmeid ei ole commit'itud;
-
-kasutajaliides töötab ka väiksemal ekraanil;
-
-muudatused on piisavalt dokumenteeritud.
-
-📄 Litsents
-
-Projekt on loodud Õpilasfirma projekti raames.
-
-Kui projektile määratakse ametlik open-source litsents, tuleks siia lisada vastav litsents ja LICENSE fail.
-
-👥 Õpilasfirma projekt
-
-Lurr või hitt? on loodud eesmärgiga anda õpilastele võimalus koolitoidu kohta oma arvamust avaldada ning muuta tagasiside kogumine koolidele lihtsamaks ja kasulikumaks.
-
-🔗 GitHub:
-https://github.com/maidla63/opilasfirma-projekt
-
-<p align="center"> Made with ❤️ for students and better school food. </p>
